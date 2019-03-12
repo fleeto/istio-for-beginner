@@ -1,0 +1,6 @@
+apiVersion: "config.istio.io/v1alpha2"
+kind: fluentd
+metadata:
+  name: handler
+spec:
+  address: "fluentd-listener.default:24224"

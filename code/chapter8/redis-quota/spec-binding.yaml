@@ -1,0 +1,11 @@
+apiVersion: config.istio.io/v1alpha2
+kind: QuotaSpecBinding
+metadata:
+  name: spec-sleep
+spec:
+  quotaSpecs:
+  - name: request-count
+    namespace: default
+  services:
+    - name: httpbin
+      namespace: default

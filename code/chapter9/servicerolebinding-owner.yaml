@@ -1,0 +1,10 @@
+apiVersion: "rbac.istio.io/v1alpha1"
+kind: ServiceRoleBinding
+metadata:
+  name: bind-service-owner
+spec:
+  subjects:
+    - user: "cluster.local/ns/default/sa/sleep"
+  roleRef:
+    kind: ServiceRole
+    name: "service-owner"

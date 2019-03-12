@@ -1,0 +1,16 @@
+apiVersion: "config.istio.io/v1alpha2"
+kind: redisquota
+metadata:
+  name: handler
+spec:
+  redisServerUrl: "redis.default:6379"
+  quotas:
+    - name: dest-quota.quota.default
+      maxAmount: 20
+      bucketDuration: 1s
+      validDuration: 10s
+      rateLimitAlgorithm: ROLLING_WINDOW
+      overrides:
+        - dimensions:
+            destination: httpbin
+          maxAmount: 1

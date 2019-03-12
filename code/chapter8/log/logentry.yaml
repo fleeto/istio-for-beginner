@@ -1,0 +1,14 @@
+apiVersion: config.istio.io/v1alpha2
+kind: logentry
+metadata:
+  name: sleep-log
+spec:
+  monitored_resource_type: '"global"'
+  severity: '"Info"'
+  timestamp: request.time
+  variables:
+    destinationApp: destination.labels["app"] | ""
+    destinationIp: destination.ip | ip("0.0.0.0")
+    destinationName: destination.name | ""
+    destinationNamespace: destination.namespace | ""
+    destinationWorkload: destination.workload.name | ""

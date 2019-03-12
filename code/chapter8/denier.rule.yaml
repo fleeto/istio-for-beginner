@@ -1,0 +1,9 @@
+apiVersion: "config.istio.io/v1alpha2"
+kind: rule
+metadata:
+  name: deny-sleep-v1-to-httpbin
+spec:
+  match: destination.labels["app"] == "httpbin" && source.labels["app"]=="sleep" && source.labels["version"] == "v1"
+  actions:
+    - handler: code-7.denier
+      instances: [place-holder.checknothing]
