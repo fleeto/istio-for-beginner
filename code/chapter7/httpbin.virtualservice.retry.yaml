@@ -11,3 +11,4 @@ spec:
             host: httpbin.default.svc.cluster.local
       retries: 
         attempts: 3            
+        retryOn: 5xx

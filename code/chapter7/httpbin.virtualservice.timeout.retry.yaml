@@ -12,4 +12,5 @@ spec:
       retries:
           attempts: 3
           perTryTimeout: 1s
+          retryOn: 5xx
       timeout: 7s
