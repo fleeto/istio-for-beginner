@@ -10,4 +10,4 @@
 
 购书请扫二维码：
 
-![jd](qr-code.png)
+![jd](qr-code-256.png)
