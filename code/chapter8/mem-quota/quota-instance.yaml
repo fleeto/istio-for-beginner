@@ -4,4 +4,4 @@ metadata:
   name: dest-quota
 spec:
   dimensions:
-    destination: destination.labels["app"] | destination.service | "unknown"
+    destination: destination.labels["app"] | destination.service.host |"unknown"
