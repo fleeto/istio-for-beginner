@@ -1,0 +1,32 @@
+apiVersion: config.istio.io/v1alpha2
+kind: handler
+metadata:
+  labels:
+    app: mixer
+    chart: mixer
+    heritage: Tiller
+    release: istio
+  name: prometheus
+spec:
+  compiledAdapter: prometheus
+  params:
+    metrics:
+      - instance_name: cxl.metric.default
+        kind: COUNTER
+        label_names:
+          - source_app
+          - source_workload
+          - source_workload_namespace
+          - source_version
+          - destination_app
+          - destination_workload
+          - destination_workload_namespace
+          - destination_version
+          - destination_service
+          - destination_service_name
+          - destination_service_namespace
+          - reporter
+          - response_code
+        name: cxl_counter
+    metricsExpirationPolicy:
+      metricsExpiryDuration: 10m

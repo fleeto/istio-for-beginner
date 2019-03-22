@@ -1,0 +1,13 @@
+apiVersion: config.istio.io/v1alpha2
+kind: rule
+metadata:
+  name: prom-http
+spec:
+  actions:
+    - handler: prometheus
+      instances:
+        - cxl.metric
+    - handler: handler.prometheus
+      instances:
+        - cxl.metric
+  match: context.protocol == "http" || context.protocol == "grpc"

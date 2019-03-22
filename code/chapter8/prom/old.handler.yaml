@@ -1,0 +1,25 @@
+apiVersion: config.istio.io/v1alpha2
+kind: prometheus
+metadata:
+  name: handler
+spec:
+  metrics:
+    - instance_name: cxl.metric.default
+      kind: COUNTER
+      label_names:
+        - source_app
+        - source_workload
+        - source_workload_namespace
+        - source_version
+        - destination_app
+        - destination_workload
+        - destination_workload_namespace
+        - destination_version
+        - destination_service
+        - destination_service_name
+        - destination_service_namespace
+        - reporter
+        - response_code
+      name: double_counter
+  metricsExpirationPolicy:
+    metricsExpiryDuration: 10m
